@@ -18,7 +18,7 @@ export
 meteor build \
   --allow-superuser \
   --directory $BUNDLE_DIR \
-  --server=http://localhost:3000
+  --server=http://localhost:3000 --server-only
 
 echo "=> Printing Meteor Node information..."
 echo "  => platform"
