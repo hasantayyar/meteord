@@ -1,5 +1,5 @@
-FROM abernix/meteord:base
-MAINTAINER Jesse Rosenberger
+FROM hasantayyar/meteord:base
+MAINTAINER Hasan Tayyar Besik
 
 ARG NODE_VERSION
 ENV NODE_VERSION ${NODE_VERSION:-4.8.0}
