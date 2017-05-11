@@ -1,6 +1,8 @@
 ## Borrowed from: https://github.com/chriswessels/meteor-tupperware
 
 set -e
+echo '>> CLEAN UP'
+
 # Autoremove any junk
 apt-get autoremove -y
 
@@ -12,6 +14,7 @@ rm -rf /var/lib/cache /var/lib/log
 
 # Clean out /tmp
 rm -rf /tmp/*
+rm -rf ~/tmp/*
 
 # Clear npm cache
 npm cache clear

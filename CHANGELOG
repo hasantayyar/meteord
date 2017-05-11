@@ -1,0 +1,5 @@
+
+added --server-only flag to meteor build
+changed /tmp path to HOME/tmp (ref : https://github.com/Microsoft/BashOnWindows/issues/3)
+added apt packages libcairo2-dev libjpeg-dev libgif-dev  (for our app)
+added bsdtar (ref: https://github.com/docker/hub-feedback/issues/727 https://github.com/coreos/bugs/issues/1095)

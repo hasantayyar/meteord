@@ -2,19 +2,22 @@ set -e
 set -x
 
 COPIED_APP_PATH=/copied-app
-BUNDLE_DIR=/tmp/bundle-dir
+mkdir -p ~/tmp/bundle-dir
+BUNDLE_DIR=~/tmp/bundle-dir
 
-# sometimes, directly copied folder cause some wierd issues
+# sometimes, directly copied folder cause some wierd issues of MacOs file system
 # this fixes that
 echo "=> Copying the app"
 cp -R /app $COPIED_APP_PATH
 cd $COPIED_APP_PATH
 
 echo "=> Executing NPM install --production"
-meteor npm install --production
+meteor npm install --production 
+
+echo "=> Executing NPM rebuild"
+meteor npm rebuild 
 
 echo "=> Executing Meteor Build..."
-export
 meteor build \
   --allow-superuser \
   --directory $BUNDLE_DIR \
@@ -36,9 +39,9 @@ node -p process.arch
 echo "  => versions"
 node -p process.versions
 
-echo "=> Executing NPM install within Bundle"
+echo "=> Executing NPM install & rebuild within Bundle"
 cd $BUNDLE_DIR/bundle/programs/server/
-npm i
+npm i --production
 
 echo "=> Moving bundle"
 mv $BUNDLE_DIR/bundle /built_app

@@ -1,4 +1,5 @@
 set -e
+echo '>> RUN APP'
 
 if [ -d /bundle ]; then
   cd /bundle
@@ -39,7 +40,7 @@ fi
 
 # Set a delay to wait to start meteor container
 if [[ $DELAY ]]; then
-  echo "Delaying startup for $DELAY seconds"
+  echo "> Delaying startup for $DELAY seconds"
   sleep $DELAY
 fi
 

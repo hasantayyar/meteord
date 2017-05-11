@@ -1,5 +1,7 @@
 #!/bin/bash
 set -e
+echo '>> INSTALL NODE'
+
 if [ -z "$NODE_VERSION" ]; then
   echo "Must set NODE_VERSION with --build-arg NODE_VERSION=x.y.z when building docker image"
   exit 1
@@ -20,4 +22,4 @@ mv ${NODE_DIST} /opt/nodejs
 ln -sf /opt/nodejs/bin/node /usr/bin/node
 ln -sf /opt/nodejs/bin/npm /usr/bin/npm
 
-npm install --global npm@3
+npm install --global npm@4
